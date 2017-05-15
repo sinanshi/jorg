@@ -1,0 +1,19 @@
+title: run something
+details: |
+  sfs agjsl;fgjs gjsljgsljfaljfaoilkafkljfalkg ajfg sklfgj
+  askjfa;gslkjfgsao;jfgakjfaljfaj aajdfaojf
+  * sfwcis atidk
+  * sfjeiw altjnwoi 
+  * but it is not good.
+timeout: 48
+inputs:
+  1: /homes/shi/bin
+  2: /homes/shi/Desktop
+
+
+command: |
+  ls -l
+  echo "xx"
+  sleep 10
+  shapeit --input
+
