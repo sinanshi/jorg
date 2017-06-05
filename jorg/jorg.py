@@ -59,7 +59,7 @@ class Jorg:
         for k, v in self.conf['inputs'].items():
             vs = v.split("/")
             name = vs[len(vs) - 1]
-            print(name)
+            print(v + " ==> " + self.thisdir + '/' + name)
             os.symlink(v, self.thisdir + '/' + name)
 
     def execute(self):
@@ -67,10 +67,10 @@ class Jorg:
         with open(self.thisdir + "/log.txt", "w") as f:
             try:
                 df = subprocess.Popen(cmd, stdout=f, stderr=f, shell=True)
-                print(df.pid)
-                if 'timeout' in conf.keys():
-                    if conf['timeout'] is not None:
-                        df.communicate(timeout=conf['timeout'] * 60 * 60)
+                print("pid: " + df.pid)
+#                if 'timeout' in self.conf.keys():
+#                    if self.conf['timeout'] is not None:
+#                        df.communicate(timeout=self.conf['timeout'] * 60 * 60)
 
             except subprocess.CalledProcessError as e:
                 f.write(e.message)

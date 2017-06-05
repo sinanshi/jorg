@@ -2,7 +2,7 @@
 import sys
 from jorg import jorg as jorg
 
-outdir = "/data/emu/shi/runs"
+outdir = "/data/mallard/not-backed-up/shi/runs"
 
 jg = jorg.Jorg(sys.argv[1])
 jg(sys.argv[1], outdir)
