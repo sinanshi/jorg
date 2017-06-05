@@ -55,11 +55,12 @@ class Jorg:
         copyfile(confpath, self.thisdir + '/conf')
 
     def link_input_files(self, outpath):
+        print("[Link input files]: ")
         assert(self.thisdir != ".")
         for k, v in self.conf['inputs'].items():
             vs = v.split("/")
             name = vs[len(vs) - 1]
-            print(v + " ==> " + self.thisdir + '/' + name)
+            print("   " + v + " ==> " + self.thisdir + '/' + name)
             os.symlink(v, self.thisdir + '/' + name)
 
     def execute(self):
@@ -67,7 +68,7 @@ class Jorg:
         with open(self.thisdir + "/log.txt", "w") as f:
             try:
                 df = subprocess.Popen(cmd, stdout=f, stderr=f, shell=True)
-                print("pid: " + df.pid)
+                print("[pid]: " + str(df.pid))
 #                if 'timeout' in self.conf.keys():
 #                    if self.conf['timeout'] is not None:
 #                        df.communicate(timeout=self.conf['timeout'] * 60 * 60)
